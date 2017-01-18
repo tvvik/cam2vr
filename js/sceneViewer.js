@@ -85,7 +85,7 @@ var ViewerScene = function() {
             });
 
 		var loaderTex = new THREE.TextureLoader();
-        loaderTex.load('images/stereo/002/left.jpg',
+        loaderTex.load('images/stereo/002/left.JPG',
             function (txx){
                 txx.wrapS = THREE.RepeatWrapping;
                 txx.wrapT = THREE.RepeatWrapping;
@@ -104,7 +104,7 @@ var ViewerScene = function() {
             });
 
         var loaderTexR = new THREE.TextureLoader();
-        loaderTexR.load('images/stereo/002/left.jpg',
+        loaderTexR.load('images/stereo/002/right.JPG',
             function (txx){
                 txx.wrapS = THREE.RepeatWrapping;
                 txx.wrapT = THREE.RepeatWrapping;
