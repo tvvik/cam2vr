@@ -1,15 +1,23 @@
 window.addEventListener('load', function() {
-	fullscreen();
+	console.log('load');
+	window.addEventListener('click', function(){
+		fullscreen();
+	});
 });
 
 function fullscreen() {
-    if (window.requestFullscreen) {
-        window.requestFullscreen();
-    } else if (window.msRequestFullscreen) {
-        window.msRequestFullscreen();
-    } else if (window.mozRequestFullScreen) {
-        window.mozRequestFullScreen();
-    } else if (window.webkitRequestFullscreen) {
-        window.webkitRequestFullscreen();
+	var container = document.getElementById("contain"); 
+
+    if (container.requestFullscreen) {
+        container.requestFullscreen();
+    } else if (container.msRequestFullscreen) {
+        container.msRequestFullscreen();
+    } else if (container.mozRequestFullScreen) {
+        container.mozRequestFullScreen();
+    } else if (container.webkitRequestFullscreen) {
+        container.webkitRequestFullscreen();
     }
+
+    window.moveTo(0, 0);
+	window.resizeTo(screen.availWidth, screen.availHeight);
 }
