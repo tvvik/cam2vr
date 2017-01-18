@@ -129,13 +129,20 @@ var ViewerScene = function() {
 		{
 			if (!this.fullScreen) {
 				this.fullScreen = true;
-				fullscreen();
+				fullscreen('webGL');
 			}
 
 			if (window.vrActive) window.vrActive = false;
 			else window.vrActive = true;
 			//console.log('VR is now: ', window.vrActive);
 		});
+
+		window.addEventListener('resize', function() {
+			this.camera.aspect = window.innerWidth / window.innerHeight;
+			this.camera.updateProjectionMatrix();
+			this.renderer.setSize( window.innerWidth, window.innerHeight );
+
+		}.bind(this), false);
 	}
 
 	this.animate = function() {
@@ -160,6 +167,8 @@ var ViewerScene = function() {
 		//console.log('vr active: ', mainScope.vrActive);
 		return mainScope.vrActive;
 	}
+
+
 
 	return this;
 } 

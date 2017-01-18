@@ -7,8 +7,8 @@ window.addEventListener('load', function() {
 	});
 });
 
-function fullscreen() {
-	var container = document.getElementById("contain"); 
+function fullscreen(divId) {
+	var container = document.getElementById(divId); 
 
     if (container.requestFullscreen) {
         container.requestFullscreen();
