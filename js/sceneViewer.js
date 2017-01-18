@@ -49,11 +49,11 @@ var ViewerScene = function() {
         this.loadTextures();
 
         this.plane1 = new THREE.Mesh(new THREE.PlaneGeometry(1280, 960), this.materialLeft);
-        this.plane1.position.set(400, 0, 0);
+        this.plane1.position.set(500, 0, 50);
         this.plane1.rotation.y = -Math.PI/2;
 
         this.plane2 = new THREE.Mesh(new THREE.PlaneGeometry(1280, 960), this.materialRight);
-        this.plane2.position.set(401, 0, 0);
+        this.plane2.position.set(503, 0, 50);
         this.plane2.rotation.y =  -Math.PI/2;
 
         this.effect = new THREE.StereoEffect(this.renderer, this.plane1, this.plane2);
@@ -122,10 +122,16 @@ var ViewerScene = function() {
                 //console.log( 'An error happened:',xhr );
             });
 	};
-
+	this.fullScreen = false;
 	this.addMainEvents = function() {
+		
 		document.getElementById('vrIco').addEventListener('mousedown', function (event) 
 		{
+			if (!this.fullScreen) {
+				this.fullScreen = true;
+				fullscreen();
+			}
+
 			if (window.vrActive) window.vrActive = false;
 			else window.vrActive = true;
 			//console.log('VR is now: ', window.vrActive);
