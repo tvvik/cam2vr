@@ -30,23 +30,32 @@ var ViewerScene = function() {
         //this.renderer.alpha = true;
         //this.effect = new THREE.StereoEffect(simItalia.renderer);
         this.camera = new THREE.PerspectiveCamera( this.camFOV, this.width / this.height, this.camNear, this.camFar );
-        this.camera.position.set(125,125,125);
+        this.camera.position.set(0,0,0);
         //this.camera.up = new THREE.Vector3(0,0,1);
-        this.camera.lookAt(new THREE.Vector3(0,0,10));
+        //this.camera.lookAt(new THREE.Vector3(0,0,10));
 
         this.controls = new THREE.DeviceOrientationControls( this.camera );
 
         this.light = new THREE.AmbientLight( 0xFFFFFF, 1);
-        this.light.position.set(0,100,0);
+        this.light.position.set(0,-100,0);
 
         this.plane1 = new THREE.Mesh(new THREE.PlaneGeometry(640, 480), new THREE.MeshStandardMaterial({color:'#00ff00'}));
+        this.plane1.position.set(0, 0, 300);
+        this.plane1.rotation.z = Math.PI/2;
+
+        this.plane2 = new THREE.Mesh(new THREE.BoxGeometry(100, 200, 50), new THREE.MeshStandardMaterial({color:'#ff0000'}));
+        this.plane2.position.set(400, 0, 0);
+        //this.plane1.rotation.x =  Math.PI/2;
+
+        var axis = new THREE.AxisHelper(100);
+        this.scene.add(axis);
 
         this.scene.add(this.camera);
         this.scene.add(this.light);
         this.scene.add(this.plane1);        
+        this.scene.add(this.plane2);
 
-
-		console.log('started 2: ', this);
+		//console.log('started 2: ', this);
 	};
 
 	this.animate = function() {
@@ -55,7 +64,7 @@ var ViewerScene = function() {
 			this.controls.update();
 			this.renderer.render(this.scene, this.camera);
 			this.frameId = requestAnimationFrame(this.animate.bind(this));
-			console.log('animating...');
+			//console.log('animating...');
 		}
 	};
 

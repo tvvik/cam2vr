@@ -3,7 +3,7 @@ window.addEventListener('load', function() {
 	var vr = new VRViewer();
 	vr.initialise('webGL');
 	window.addEventListener('click', function(){
-		fullscreen();
+		//fullscreen();
 	});
 });
 
