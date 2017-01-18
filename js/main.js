@@ -1,5 +1,7 @@
 window.addEventListener('load', function() {
 	console.log('load');
+	var vr = new VRViewer();
+	vr.initialise('webGL');
 	window.addEventListener('click', function(){
 		fullscreen();
 	});
