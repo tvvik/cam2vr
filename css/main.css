@@ -25,14 +25,20 @@ body {
 }
 
 #left {
-    background-color: #333333;
-    background: url('../images/stereo/002/left.JPG') no-repeat;
-    background-position: center;
+    background-color: #333333;    
+
+    background-image:    url(../images/stereo/002/left.JPG);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;   
 }
 
 #right {
     background-color: #666666;
-    float: right;
-    background: url('../images/stereo/002/right.JPG') no-repeat;
-    background-position: center;
+    float: right;    
+
+    background-image:    url(../images/stereo/002/right.JPG);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;              /* optional, center the image */
 }
