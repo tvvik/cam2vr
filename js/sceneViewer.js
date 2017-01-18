@@ -49,11 +49,11 @@ var ViewerScene = function() {
         this.loadTextures();
 
         this.plane1 = new THREE.Mesh(new THREE.PlaneGeometry(1700, 1000), this.materialLeft);
-        this.plane1.position.set(600, 0, 50);
+        this.plane1.position.set(800, 0, 50);
         this.plane1.rotation.y = -Math.PI/2;
 
         this.plane2 = new THREE.Mesh(new THREE.PlaneGeometry(1700, 960), this.materialRight);
-        this.plane2.position.set(603, 0, 50);
+        this.plane2.position.set(803, 0, 50);
         this.plane2.rotation.y =  -Math.PI/2;
 
         this.effect = new THREE.StereoEffect(this.renderer, this.plane1, this.plane2);
