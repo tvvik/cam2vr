@@ -35,7 +35,7 @@ var ViewerScene = function() {
         this.renderer.setClearColor( 0xf3f3f3 );
         this.container.appendChild( this.renderer.domElement );
         //this.renderer.alpha = true;
-        this.effect = new THREE.StereoEffect(this.renderer);
+        
         this.camera = new THREE.PerspectiveCamera( this.camFOV, this.width / this.height, this.camNear, this.camFar );
         this.camera.position.set(0,0,0);
         //this.camera.up = new THREE.Vector3(0,0,1);
@@ -56,6 +56,7 @@ var ViewerScene = function() {
         this.plane2.position.set(401, 0, 0);
         this.plane2.rotation.y =  -Math.PI/2;
 
+        this.effect = new THREE.StereoEffect(this.renderer, this.plane1, this.plane2);
         var axis = new THREE.AxisHelper(100);
         this.scene.add(axis);
 
@@ -138,8 +139,9 @@ var ViewerScene = function() {
 
 			this.controls.update();
 			if (window.vrActive) {
-				 this.effect.render(this.scene, this.camera);
-				 console.log('rendering in VR mode');
+				 //console.log('trying with plan1: ', this.plane1)
+				 this.effect.render(this.scene, this.camera, this.plane1, this.plane2);
+				 //console.log('rendering in VR mode');
 			}
 			else this.renderer.render(this.scene, this.camera);
 			this.frameId = requestAnimationFrame(this.animate.bind(this));
