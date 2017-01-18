@@ -19,6 +19,8 @@ var ViewerScene = function() {
 
 	this.vrActive = false;
 
+	window.vrActive = this.vrActive;
+
 	this.initialise = function(container)
 	{
 		this.container = container;
@@ -123,9 +125,9 @@ var ViewerScene = function() {
 	this.addMainEvents = function() {
 		document.getElementById('vrIco').addEventListener('mousedown', function (event) 
 		{
-			if (this.vrActive) this.vrActive = false;
-			else this.vrActive = true;
-			console.log('VR is now: ', this.vrActive);
+			if (window.vrActive) window.vrActive = false;
+			else window.vrActive = true;
+			//console.log('VR is now: ', window.vrActive);
 		});
 	}
 
@@ -135,20 +137,20 @@ var ViewerScene = function() {
 			//this.plane1.rotation.y += 0.1;
 
 			this.controls.update();
-			if (this.getVRActive) {
+			if (window.vrActive) {
 				 this.effect.render(this.scene, this.camera);
 				 console.log('rendering in VR mode');
 			}
 			else this.renderer.render(this.scene, this.camera);
 			this.frameId = requestAnimationFrame(this.animate.bind(this));
 
-
 			//console.log('animating...');
 		}
 	};
 
 	this.getVRActive = function(){
-		return this.vrActive;
+		//console.log('vr active: ', mainScope.vrActive);
+		return mainScope.vrActive;
 	}
 
 	return this;
