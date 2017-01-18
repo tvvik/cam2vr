@@ -31,7 +31,7 @@ var ViewerScene = function() {
         //this.effect = new THREE.StereoEffect(simItalia.renderer);
         this.camera = new THREE.PerspectiveCamera( this.camFOV, this.width / this.height, this.camNear, this.camFar );
         this.camera.position.set(125,125,125);
-        this.camera.up = new THREE.Vector3(0,0,1);
+        //this.camera.up = new THREE.Vector3(0,0,1);
         this.camera.lookAt(new THREE.Vector3(0,0,10));
 
         this.controls = new THREE.DeviceOrientationControls( this.camera );
@@ -52,6 +52,7 @@ var ViewerScene = function() {
 	this.animate = function() {
 		//console.log('now in animate: ', this);
 		if (this!==window) {
+			this.controls.update();
 			this.renderer.render(this.scene, this.camera);
 			this.frameId = requestAnimationFrame(this.animate.bind(this));
 			console.log('animating...');
