@@ -1,0 +1,38 @@
+font-family: 'Open Sans', sans-serif;
+
+html{
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    color: #ffffff;
+    font-family: Open Sans,sans-serif;
+    font-size: 13px;
+    background-color: #fff;
+    background: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    overflow: hidden;
+    position:absolute; top:0; bottom:0; right:0; left:0;
+}
+
+.vid {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+}
+
+#left {
+    background-color: #333333;
+    background: url('../images/stereo/002/left.JPG') no-repeat;
+    background-position: center;
+}
+
+#right {
+    background-color: #666666;
+    float: right;
+    background: url('../images/stereo/002/right.JPG') no-repeat;
+    background-position: center;
+}
