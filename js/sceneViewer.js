@@ -171,7 +171,7 @@ var ViewerScene = function() {
 				this.renderer.render(this.scene, this.camera);	
 			} 
 
-			console.log('animating...');
+			//console.log('animating...');
 			this.frameId = requestAnimationFrame(this.animate.bind(this));
 			
 		}
